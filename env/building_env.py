@@ -29,7 +29,7 @@ class BuildingEnv:
         self.grid[0, self.cols - 1] = self.EXIT
 
         #Place initial fire in middle
-        self.grid[self.rows // 2, self.cols // 2] = self.FIRE
+        self.grid[self.rows // 2, 1] = self.FIRE
 
         return self._get_state()
     
@@ -64,7 +64,7 @@ class BuildingEnv:
         elif action == 2 and y > 0: #Left
             y -= 1
 
-        elif action == 2 and y < self.cols - 1: #Right
+        elif action == 3 and y < self.cols - 1: #Right
             y += 1
 
         self.agent_pos = [x, y]
