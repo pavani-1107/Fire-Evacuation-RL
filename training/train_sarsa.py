@@ -9,12 +9,12 @@ from agents.sarsa import SARSAAgent
 import matplotlib.pyplot as plt
 
 #Training parameters
-episodes = 500
-max_steps = 100
+episodes = 1000
+max_steps = 200
 
 #Create enviroment and agent
-env = BuildingEnv(grid_size=(5, 5), fire_spread_prob=0.1)
-agent = SARSAAgent(state_size=1000, action_size=5, learning_rate=0.1, discount=0.99)
+env = BuildingEnv(grid_size=(8, 8), fire_spread_prob=0.1)
+agent = SARSAAgent(state_size=5000, action_size=5, learning_rate=0.1, discount=0.99)
 
 #Track results
 episode_rewards = []

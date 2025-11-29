@@ -10,8 +10,8 @@ from agents.sarsa import SARSAAgent
 import matplotlib.pyplot as plt
 
 #Training parameters
-episodes = 500
-max_steps = 100
+episodes = 1000
+max_steps = 200
 num_runs = 3 # Run multiple times and average
 
 print('Comparing Q-Learning vs SARSA')
@@ -26,8 +26,8 @@ for run in range(num_runs):
     print(f"Run {run + 1}/{num_runs}")
 
     #Train Q-Learning
-    env = BuildingEnv(grid_size=(5, 5), fire_spread_prob=0.1)
-    q_agent = QLearningAgent(state_size=1000, action_size=5)
+    env = BuildingEnv(grid_size=(10, 10), fire_spread_prob=0.1)
+    q_agent = QLearningAgent(state_size=5000, action_size=5)
     q_rewards = []
     q_success = 0
 
@@ -52,8 +52,8 @@ for run in range(num_runs):
     qlearning_success_rates.append(q_success / episodes * 100)
 
     #Train SARSA
-    env = BuildingEnv(grid_size=(5, 5), fire_spread_prob=0.1)
-    s_agent = SARSAAgent(state_size=1000, action_size=5)
+    env = BuildingEnv(grid_size=(8, 8), fire_spread_prob=0.1)
+    s_agent = SARSAAgent(state_size=5000, action_size=5)
     s_rewards = []
     s_success = 0
 

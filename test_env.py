@@ -1,20 +1,21 @@
 from env.building_env import BuildingEnv
 
-#create environment
-env = BuildingEnv(grid_size=(5, 5))
-
-#reset and print initial state
+print("Testing Simple Environment (5x5):\n")
+env = BuildingEnv(grid_size=(8, 8), complex_layout=False)
 state = env.reset()
-print("Initital State: ", state)
-print("Agent Position: ", env.agent_pos)
-print("\nGrid")
+print("Grid:")
 print(env.grid)
+print(f"Agent position: {env.agent_pos}")
+print(f"State: {state}\n")
 
-#Take a few steps
-for i in range(3):
-    action = 3 #move right
-    state, reward, done, info = env.step(action)
-    print(f"\nStep {i + 1}: Action = Right, Reward = {reward}, Done = {done}")
-    print("State: ", state)
+print("=" * 50)
 
-print("\nEnvironment Works")
+print("\nTesting Complex Environment (10x10):\n")
+env_complex = BuildingEnv(grid_size=(10, 10), complex_layout=True)
+state = env_complex.reset()
+print("Grid:")
+print(env_complex.grid)
+print(f"Agent position: {env_complex.agent_pos}")
+print(f"State: {state}")
+
+print("\nBoth environments work!")

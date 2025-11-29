@@ -8,8 +8,8 @@ from agents.qlearning import QLearningAgent
 learning_rates = [0.1, 0.3, 0.5]
 discount_factors = [0.9, 0.95, 0.99]
 
-episodes = 300
-max_steps = 100
+episodes = 3000
+max_steps = 300
 
 print("Hyperparameter Tuning for Q-Learning Agent")
 
@@ -19,8 +19,8 @@ for lr in learning_rates:
     for gamma in discount_factors:
         print(f"\nTesting: Learning Rate = {lr}, Discount = {gamma}")
 
-        env = BuildingEnv(grid_size=(5,5), fire_spread_prob=0.1)
-        agent = QLearningAgent(state_size=1000, action_size=5, learning_rate=lr, discount=gamma)
+        env = BuildingEnv(grid_size=(8, 8), fire_spread_prob=0.1)
+        agent = QLearningAgent(state_size=5000, action_size=5, learning_rate=lr, discount=gamma)
         success_count = 0
         total_rewards = []
 
