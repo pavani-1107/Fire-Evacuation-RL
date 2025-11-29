@@ -90,6 +90,7 @@ Best results typically with α=0.1-0.3 and γ=0.99
 - **Grid Size**: 5×5 (configurable)
 - **Agent Start**: Bottom-left corner
 - **Exit**: Top-right corner
+- **Obstacles**: Walls placed strategically
 - **Fire Spread**: Probabilistic (10-30% per step)
 - **Actions**: Up, Down, Left, Right, Stay
 - **Rewards**: +100 (exit), -100 (fire), -1 (each step)

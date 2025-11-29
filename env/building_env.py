@@ -31,6 +31,12 @@ class BuildingEnv:
         #Place initial fire in middle
         self.grid[self.rows // 2, 1] = self.FIRE
 
+        #Add walls
+        if self.rows >= 5 and self.cols >= 5:
+            self.grid[1,2] = self.WALL
+            self.grid[2,2] = self.WALL
+            self.grid[3,4] = self.WALL
+
         return self._get_state()
     
     def _get_state(self):
@@ -67,9 +73,14 @@ class BuildingEnv:
         elif action == 3 and y < self.cols - 1: #Right
             y += 1
 
-        self.agent_pos = [x, y]
+        #Check if new position is a wall
+        if self.grid[x, y] == self.WALL:
+            #Stay in old position
+            x, y = self.agent_pos
+        else:
+            self.agent_pos = [x, y]
 
-        cell = self.grid [x, y]
+        cell = self.grid[x, y]
 
         if cell == self.EXIT:
             return self._get_state(), 100, True, {} #WIN
