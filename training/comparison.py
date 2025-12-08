@@ -26,7 +26,7 @@ for run in range(num_runs):
     print(f"Run {run + 1}/{num_runs}")
 
     #Train Q-Learning
-    env = BuildingEnv(grid_size=(10, 10), fire_spread_prob=0.1)
+    env = BuildingEnv(grid_size=(8, 8), fire_spread_prob=0.1)
     q_agent = QLearningAgent(state_size=5000, action_size=5)
     q_rewards = []
     q_success = 0
